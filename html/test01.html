@@ -1,0 +1,60 @@
+<!DOCTYPE html> <!-- html 정의문-->
+<html lang="ko"> <!-- 한글 ko -->
+<head>
+    <meta charset="UTF-8"> <!-- 한글셋 깨지지 않게 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html</title> <!-- 웹 문서 제목, 검색엔진 최소화-->
+</head>
+<body>
+    <h1>웹사이트의 모습을 기술하기 위한 마크업 언어</h1>
+
+    프로그래밍 언어가 아니라 <strong>마크업 정보</strong>를 표현하는 <b>마크업 언어</b>로
+    문서의 내용 이외의 문서 언어
+
+    <!-- strong : 강조할 때 굵게 , b: 단순히 굵게-->
+
+    <em> 중요한 내용 담는 em태그</em>
+    <i>단순히 이텔릭체</i>
+    <p>웹의 창시자인 팀 버너스 리 <q cite="http://www.w3.org.standrads/webdesign/accessibility">
+        웹의 힘은 보편성에 있다. 장애에 구애없이 모든 사람이 접근할 수 있는것이 필수 요소이다
+    </q>라는 말로 웹 접근성을 설명한다</p>
+
+    <!-- q: 인용 내용 표시 -->
+
+    <p>루비는 1995년 일본의 프로그래머인 마츠모토 유키히로 (<ruby>ss<rt>sds</rt></ruby>)가 만든 프로그래밍언어</p>
+
+    <ruby>윗주 <rt> ruby </rt></ruby> 윗주
+    <ruby>아래글자<rt>윗글자</rt></ruby> <br><br>
+
+    <p><b><abbr title="hi">iot</abbr></b>란 각종 사물에 센서..</p>
+    <p> 내가 경험한 <cite>'비포선셋' </cite> 중 </p>
+
+    <img src="./images/1.png" alt="이미지가 손상되었거나 열리지 않을 경우 대체할 텍스트">
+
+    <h3>이미지 그림파일 확장자 설명</h3>
+
+    <pre>
+        gif : 표시할 수 있는 색상수가 최대 256가지, 다른 이미지 파일 형식에 비해 크기 작음
+        아이콘, 불릿 등 작은 이미지에 주로 사용, 투명한 배경이나 움직이는 이미지를 만들수 있음
+        jpg/jpeg : 사진을 위해 개발된 형식 gif보다 다양한 색상, 명암 표현
+        저장을 반복하다 보면 화질이 떨어진다
+        png : 투명 배경을 만들수 있고 다양한 생상 표현, 네트워크용으로 개발되어 최근 많이 사용
+    </pre>
+    
+    <h3>ul : 목차 없는 리스트</h3>
+    <ul> 프론트엔드: 사용자에게 보여지는 부분
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+
+    <h3>ol : 목차 있는 리스트</h3>
+    <ol>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ol>
+
+    <img src="data:image/jpeg;base64,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" alt="움직이는 이미지">
+</body>
+</html>
