@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <head>
+        <h1>여름방학 특강 신청</h1>
+    </head>
+    <main>
+        <form>
+            <fieldset>
+                <legend>수강 신청인</legend>
+                <ul>
+                    <li>
+                        <label for="id">학번</label>
+                        <input type="text" id="id" autofocus>    
+                    </li>
+                    <li>
+                        <label for="name">이름</label>
+                        <input type="text" id="name">    
+                    </li>
+                    <li>
+                        <label for="major">학과</label>
+                        <select id="major" size="1" multiple>
+                           <optgroup label="공과대학">
+                                <option>건축공학과</option>
+                                <option>기계</option>
+                                <option>산업</option>
+                                <option>전자</option>
+                                <option selected>컴공</option>
+                           </optgroup>  
+
+                           <optgroup label="인문대학">
+                                <option>사학</option>
+                                <option>역사</option>
+                                <option>국어</option>
+                                <option>영어</option>
+                                <option selected>프랑스</option>
+                            </optgroup> 
+                        </select>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
