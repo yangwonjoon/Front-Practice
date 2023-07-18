@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            text-align: center;
+        }
+        label, input{
+            display: inline-block;
+        }
+        label:hover{
+            color: red;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .animation{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border-radius: 50%;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            transition: all 1s;
+        }
+
+        #matrix1:checked~ .animation{
+            transform: matrix(1,0,0,1,0,0);
+        }
+        #matrix2:checked~ .animation{
+            transform: matrix(1.5, 0, 0, 1.5, 0, 0);
+        }
+        #matrix3:checked~ .animation{
+            transform: matrix(1, 1.2, -0.5, 1, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <input type="radio" name="matrix" id="matrix1" value="matrixs1" checked>
+        <label for="matrix1">초기화</label>
+        <input type="radio" name="matrix" id="matrix2" value="matrixs2" >
+        <label for="matrix2">줌</label>
+        <input type="radio" name="matrix" id="matrix3" value="matrixs3" >
+        <label for="matrix3">기울기</label>
+    </div>
+
+    
+    <div class="animation">animation</div>
+    
+</body>
+</html>

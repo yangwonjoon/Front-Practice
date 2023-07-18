@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .animation{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border-radius: 50%;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            animation: anima 3s alternate ease-in-out ;
+        }
+        @keyframes anima{
+            from{
+                transform: translate(0,0);
+            }
+            to{
+                transform: translate(400px, 300px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="animation">animation</div>
+    </div>
+</body>
+</html>

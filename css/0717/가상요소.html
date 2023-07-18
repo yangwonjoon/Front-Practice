@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .up::before{
+            content: "주문폭주!!" ;
+            background-color: pink ;
+        }
+        .down::after{
+            content: "new";
+            color: white;
+            background-color: red;
+        }
+        .none::before{
+            color: white;
+            content: "품절!!";
+            background-color: aquamarine;
+        }
+        
+
+        /* 밑에꺼 */
+        .virtual li:nth-child(1)::after{
+            content: "주문폭주!!" ;
+            background-color: pink ;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>
+            가상요소
+        </h1>
+        <ul>
+            <li class="up">제품A</li>
+            <li>제품B</li>
+            <li>제품C</li>
+            <li class="down">제품D</li>
+            <li>제품E</li>
+            <li>제품F</li>
+            <li class="up">제품G</li>
+            <li class="none">제품H</li>
+            <li class="none">제품I</li>
+        </ul>
+
+
+        <ul class="virtual">
+            <li >제품A</li>
+            <li>제품B</li>
+            <li>제품C</li>
+            <li >제품D</li>
+            <li>제품E</li>
+            <li>제품F</li>
+            <li >제품G</li>
+            <li >제품H</li>
+            <li >제품I</li>
+        </ul>
+    </div>
+</body>
+</html>
