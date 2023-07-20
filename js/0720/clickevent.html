@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li class=cl onclick="change('green')">green</li>
+        <li onclick="change('orange')">orange</li>
+        <li onclick="change('purple')">purple</li>
+    </ul>
+
+    <div id=di style="border: 1px black solid; width: 200px; height: 200px;">
+
+
+    </div>
+
+
+    <script>
+
+
+        let halfcircleline = prompt('반지름이 얼마입니까?');
+        let rectangle = prompt('사각형 변 길이');
+        let circle;
+        circle = halfcircleline*halfcircleline*3.14;
+        document.write('원:' + circle);
+
+
+        function change(a){
+            document.getElementById('di').style.backgroundColor = a
+        }
+
+
+
+        //비교 연산자
+
+        ko == 10; //비교
+        ko === 10; //자료형 비교
+        
+    </script>
+</body>
+</html>

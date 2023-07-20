@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // math = prompt('수학점수는 몇점?','');
+        // english = prompt('영어점수는 몇점?','');
+        // korean = prompt('국어점수는 몇점?',"");
+        // let message;
+
+        // sum = (Number(math) + Number(english) + Number(korean)) / 3;
+
+        // document.write('<h1>평균점수는 '+sum+'</h1>');
+
+        // if (sum>70){
+        //     message = '합격'
+        // }else{
+        //     message = '불합격'
+        // }
+
+        
+        // document.write('<h3>'+ message + '</h3>');
+
+
+        UserInput = Number(prompt('숫자를 입력하세요'));
+        let message;
+
+        if ((UserInput % 3) == 0){
+            message = '3의 배수입니다'
+        }else{
+            message = '3의 배수가 아닙니다'
+        }
+
+        document.write("<h1>"+ message+"</h1>")
+    </script>
+</body>
+</html>
