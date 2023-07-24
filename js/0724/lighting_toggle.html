@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .on{
+            display: block;
+        }
+        .off{
+            display: none;
+        }
+        .on.active{
+            display: none;
+        }
+        .off.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>전구 on/off</h1>
+
+    <img src="../../apple/images/on.png" class="on">
+    <img src="../../apple/images/off.png" class="off">
+    <button class="onbtn">on</button>
+    <button class="offbtn">off</button>
+
+    <script>
+        const $on = document.querySelector('.on');
+        const $off = document.querySelector('.off');
+
+        const $onbtn = document.querySelector('.onbtn');
+        const $offbtn = document.querySelector('.offbtn');
+
+        $onbtn.addEventListener('click',()=>{
+            $on.classList.remove('active');
+            $off.classList.remove('active');
+        })
+
+        $offbtn.addEventListener('click',()=>{
+            $off.classList.add('active');
+            $on.classList.add('active');
+        })
+    </script> -->
+
+    <h1>전구 on/off</h1>
+    
+    <img src="" class="img">
+    
+    <button class="onbtn" onclick="click(1)">on</button>
+    <button class="offbtn" onclick="click(0)">off</button>
+
+    <script>
+        let $img = document.querySelector('.img')
+
+        function click(num){
+            if(num === 1){
+                $img.src = "../../apple/images/on.png";
+            }
+            else
+                $img.src = '../../apple/images/off.png';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #modal-box{
+            border: 1px solid black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(176, 174, 174, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        #modal-box.active{
+            display: flex;
+        }
+        #modal-content{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button id="openmodal">프로필 보기</button>
+
+    <div id="modal-box">
+        <div id="modal-content">
+            <span>my profile</span><br>
+            <button id="closemodal">close</button>
+        </div>
+    </div>
+
+    <script>
+        const $openmodal = document.querySelector('#openmodal');
+        const $closemodal = document.querySelector('#closemodal');
+        const $modalbox = document.querySelector('#modal-box')
+
+        $openmodal.addEventListener('click',()=>{
+            $modalbox.classList.toggle('active');
+        }
+        )
+
+        $closemodal.addEventListener('click',()=>{
+            $modalbox.classList.toggle('active');
+        }
+        )
+    </script>
+</body>
+</html>
