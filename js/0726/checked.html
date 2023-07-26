@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      div {
+        box-sizing: border-box;
+        border: 1px black solid;
+      }
+      #container {
+        padding: 20px;
+      }
+      fieldset{margin: 10px;}
+      ul{
+        line-height: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <fieldset>
+        <legend>주문</legend>
+        <ul>
+          <li>
+            <label for="OrderName">이름 : </label>
+            <input id="OrderName" type="text" />
+          </li>
+          <li>
+            <label for="OrderTel">연락처 : </label>
+            <input id="OrderTel" type="tel" />
+          </li>
+          <li>
+            <label for="OrderAddr">주소 : </label>
+            <input id="OrderAddr" type="text" />
+          </li>
+        </ul>
+      </fieldset>
+
+      <fieldset>
+        <legend>수신</legend>
+        <ul>
+            <li>
+                <input type="checkbox" id="ReceptCheck">
+                <label for="ReceptCheck"> 주문자와 정보가 같습니까? </label>
+            </li>
+          <li>
+            <label for="ReceptName">이름 : </label>
+            <input id="ReceptName" type="text" />
+          </li>
+          <li>
+            <label for="ReceptTel">연락처 : </label>
+            <input id="ReceptTel" type="tel" />
+          </li>
+          <li>
+            <label for="ReceptAddr">주소 : </label>
+            <input id="ReceptAddr" type="text" />
+          </li>
+        </ul>
+      </fieldset>
+      <button type="button">결제하기</button>
+    </div>
+
+    <script>
+
+        let ReceptCheck = document.getElementById('ReceptCheck');
+
+        ReceptCheck.addEventListener('click', function(){
+            e.preventDefault;
+
+            if(ReceptCheck.checked == true){
+                document.getElementById('ReceptName').value = document.getElementById('OrderName').value;
+            }else{
+                document.getElementById('ReceptName').value ='';
+            }
+        })
+
+    </script>
+  </body>
+</html>
