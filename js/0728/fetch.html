@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+
+    </div>
+
+    <script>
+        fetch('student2.json').then()(response => response.json())
+        .then(json =>{
+            let output = '';
+            json.forEach(student => {
+                output += `
+                
+                <h2> ${student.name} </h2>
+                    <ul><li> ${student.major} </li>
+                    <li> ${student.grade}</li></ul>
+                `;
+            });
+            document.querySelector('#result').innerHTML = output;
+        }
+        )
+        .catch( error => console.log(error))
+    </script>
+</body>
+</html>

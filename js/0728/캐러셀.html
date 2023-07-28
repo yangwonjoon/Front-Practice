@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            width: 500px;
+            height: 400px;
+            margin: 100px auto;
+            
+            justify-content: space-between;
+            align-items: center;
+        }
+        .arrow{
+            width: 50px;
+            height: 100px;
+            background-color: black;
+
+        }
+        #left{
+            left: 0;
+        }   
+        #right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="arrow" id="left"></div>
+        <div class="arrow" id="right"></div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const pics = ['pic.png','pic2.png','pic3.png','pic4.png'];
+
+        container.style.backgroundImage = 'url(images/pic4.png)';
+        const arrows = document.querySelectorAll('.arrow');
+        let i = 0;
+
+        arrows.forEach(arrow =>{
+            arrow.addEventListener('click', (e)=>{
+                if(e.target.id === 'left'){
+                    i--;
+                    if(i<0){
+                        i= pics.length-1;
+                    }
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>
