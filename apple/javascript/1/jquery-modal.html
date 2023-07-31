@@ -94,6 +94,11 @@
                     alert("passwd 입력하셈");
                     $(".form-control").val('');
                 }
+                else if (passwd.length < 6) {
+                    event.preventDefault();
+                    alert("passwd 5글자 이하임");
+                    $(".form-control").val('');
+                }
             });
         </script>
 
