@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+
+<script>
+
+    const result = 1234;
+    let count = 0;
+
+    $('#send-answer').on("click", function (){
+        count +=1;
+
+       var answer = $('#answer').val();
+        if(answer == result){
+            count = 0;
+            alert(('천재!'));
+            console.log(count);
+        }
+        if(count>3)
+            alert('바보!')
+    });
+
+
+    // var first = 500;
+    // var second = (first/3)*2;
+    // var third = (second/3)*2
+    //
+    // var result = first+second +third;
+    //
+    // console.log(result);
+
+
+    // var start = -10000;
+    // var end = 0;
+    //
+    // // function money(start){
+    // //     if(start>50000){
+    // //         result = start*1.2*1.2;
+    // //     }else if(start>0){
+    // //         result = start*1.15*1.15;
+    // //     }else{
+    // //         result=0;
+    // //     }
+    // //
+    // //     return result;
+    // // }
+    // // money(60000);
+    //
+    //     if(start>50000){
+    //         result = start*1.2*1.2;
+    //     }else if(start>0){
+    //         result = start*1.15*1.15;
+    //     }else{
+    //         result=0;
+    //     }
+    //
+    //     result = Math.round((result))
+    //
+    // console.log(result)
+
+
+    // const myName = "yang won joon";
+    // let myAge = 25;
+    // const myCity = "paju";
+    //
+    // console.log(myName, myAge, myCity);
+
+    // var name = 'park';
+    // var id = 0;
+    //
+    // function showName(){
+    //     var name = 'kim';
+    //     var id = 1;
+    //     console.log(name);
+    // }
+    //
+    // showName();
+    // console.log(id);
+</script>
+</body>
+</html>
