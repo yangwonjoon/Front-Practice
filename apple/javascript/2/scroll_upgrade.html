@@ -10,10 +10,13 @@
             }
             .scr {
                 background-color: black;
-                height: 100%;
+                height: 0%;
                 width: 30px;
                 float: left;
+                visibility: hidden;
+                transition: 0.1s all;
             }
+            
         </style>
     </head>
     <body>
@@ -29,7 +32,29 @@
         ></script>
 
         <script>
-            
+            window.addEventListener("scroll", function () {
+                // let hid= window.scrollY;
+                // let real =window.innerHeight;
+                // let out = window.ScrollHeight;
+
+                // let sum = hid+real +10 ;
+                // console.log(out);
+
+                // var scrollDepth =
+                //     ((window.scrollYg) /
+                //         document.body.scrollHeight) *
+                //     100;
+
+                console.log($(window).scrollTop());
+                console.log($(document).height());
+                console.log($(window).height());
+
+                // let sum = Math.floor(($(window).scrollTop() / ($(document).height() - $(window).height())) * 100);
+                // console.log(sum);
+
+                // $('.scr').css({'visibility':'visible', 'height' : +sum+'%'});
+                
+            });
         </script>
     </body>
 </html>
