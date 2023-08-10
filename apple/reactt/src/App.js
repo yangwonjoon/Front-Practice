@@ -4,10 +4,15 @@ import { useState } from "react";
 
 function App() {
     const [name, setname] = useState(["남자 코트 추천", "강남 우동 맛집", "고라니.."]);
-    const [good, setgood] = useState([0, 1, 2]);
+    const [good, setgood] = useState([0, 0, 0]);
     const [modal, setmodal] = useState(false);
     const [title, settitle] = useState(0);
     const [add, setadd] = useState("");
+    const [date, setdate] = useState(["2/17", "2/17", "2/17"]);
+
+    let today = new Date();
+    let month = today.getMonth() + 1;
+    let day = today.getDay();
 
     return (
         <div className="App">
@@ -36,12 +41,22 @@ function App() {
                             </span>
                             {good[i]}
                         </h4>
-                        <p>2월 17일 발행</p>
+                        <p>
+                            <b>{date[i] + " 발행"}</b>
+                        </p>
                         <button
                             onClick={() => {
                                 let copy = [...name];
                                 copy.splice(i, 1);
                                 setname(copy);
+
+                                let copy2 = [...good];
+                                copy2.splice(i, 1);
+                                setgood(copy2);
+
+                                let copy3 = [...date];
+                                copy3.splice(i, 1);
+                                setdate(copy3);
                             }}
                         >
                             삭제
@@ -58,12 +73,31 @@ function App() {
             >
                 가나다순 정렬
             </button> */}
-            <input type="text" onChange={(e) => setadd(e.target.value)}></input>
+            <input
+                type="text"
+                onChange={(e) => {
+                    e.preventDefault();
+                    console.log(e.target.value);
+                    setadd(e.target.value);
+                }}
+            ></input>
             <button
-                onClick={() => {
-                    let copy = [...name];
-                    copy[copy.length] = add;
-                    setname(copy);
+                onClick={(e) => {
+                    if (add.length > 0) {
+                        let copy = [...name];
+                        copy[copy.length] = add;
+                        setname(copy);
+
+                        let copy2 = [...good];
+                        copy2[copy2.length] = 0;
+                        setgood(copy2);
+
+                        let copy3 = [...date];
+                        copy3[copy3.length] = month + "/" + day;
+                        setdate(copy3);
+
+                        console.log(month);
+                    }
                 }}
             >
                 버튼
