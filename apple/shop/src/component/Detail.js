@@ -9,7 +9,7 @@ function Detail(props) {
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <img src={"https://codingapple1.github.io/shop/shoes" + (parseInt(id) + 1) + ".jpg"} width="100%" />
+                    <img src={props.shoes[id].img} width="100%" />
                 </div>
                 <div className="col-md-6">
                     <h4 className="pt-5">{props.shoes[id].title}</h4>

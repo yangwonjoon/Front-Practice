@@ -48,12 +48,11 @@ function App() {
       </Routes>
 
       <button onClick={() => {
-        shoes.map(function (a, i) {
-          name += shoes[i].title;
-          
-        })
-        console.log(name);
 
+        let copy = [...shoes];
+        copy.sort((a, b) => a.title < b.title ? -1 : 1)
+        setShoes(copy)
+        console.log(copy);
       }}>가나다순 정렬</button>
 
       <button onClick={() => { navigate('/detail') }}>detail</button>
