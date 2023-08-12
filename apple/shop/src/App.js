@@ -11,6 +11,7 @@ import { Route, Routes, Link, useNavigate, Outlet } from 'react-router-dom';
 function App() {
 
   let [shoes, setShoes] = useState(data);
+  let [name, setName] = useState([]);
   let navigate = useNavigate();
 
   return (
@@ -42,14 +43,18 @@ function App() {
               }
             </Row>
           </Container></>}></Route>
-        <Route path='/detail' element={<Detail></Detail>}></Route>
-
-        <Route path='/event' element={<><h1>오늘의 이벤트</h1><Outlet></Outlet></>}>
-          <Route path='one' element={<p>첫 주문시 양배추 즙 서비스</p>}></Route>
-          <Route path='two' element={<p>생일 기념 이벤트!</p>}></Route>
-        </Route>
+        <Route path='/detail/:id' element={<Detail shoes={shoes} ></Detail>}></Route>
 
       </Routes>
+
+      <button onClick={() => {
+        shoes.map(function (a, i) {
+          name += shoes[i].title;
+          
+        })
+        console.log(name);
+
+      }}>가나다순 정렬</button>
 
       <button onClick={() => { navigate('/detail') }}>detail</button>
       <button onClick={() => { navigate('/') }}>home</button>
