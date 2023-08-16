@@ -45,3 +45,7 @@
   background-position: center;
   background-size: cover;
 }
+
+.wr {
+  flex: 0 0 calc(33.33% - 20px);
+}

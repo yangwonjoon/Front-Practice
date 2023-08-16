@@ -7,12 +7,15 @@ import Detail from './component/Detail';
 import Product from './component/Product';
 import { useState } from 'react';
 import { Route, Routes, Link, useNavigate, Outlet } from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
 
   let [shoes, setShoes] = useState(data);
   let [name, setName] = useState([]);
   let navigate = useNavigate();
+  let [count, setCount] = useState(1);
+  let [load, setLoad] = useState(1);
 
   return (
     <div className="App">
@@ -33,11 +36,11 @@ function App() {
 
           <Container>
 
-            <Row>
+            <Row className='row'>
               {
                 shoes.map(function (a, i) {
                   return (
-                    <Product shoes={shoes} i={i}></Product>
+                    <Product shoes={shoes} i={i} key={i}></Product>
                   )
                 })
               }
@@ -47,6 +50,39 @@ function App() {
 
       </Routes>
 
+      {
+        count > 2
+          ? null
+          : <button onClick={() => {
+            setLoad(0);
+            if (count == 1) {
+              axios.get('https://codingapple1.github.io/shop/data2.json').then((response) => {
+                console.log(response.data);
+                console.log(shoes)
+                let copy = [...shoes, ...response.data];
+                setShoes(copy)
+              }).catch(() => {
+                console.log('axios 실패')
+              })
+            }
+            if (count == 2) {
+              axios.get('https://codingapple1.github.io/shop/data3.json').then((response) => {
+                console.log(response.data);
+                console.log(shoes)
+                let copy = [...shoes, ...response.data];
+                setShoes(copy)
+              }).catch(() => {
+                console.log('axios 실패')
+              })
+            }
+            setCount(count + 1)
+            console.log(count)
+            setLoad(1);
+          }}>더 보기</button>
+      }
+
+      {load == 0 ? <p>로딩중</p> : null
+      }
       <button onClick={() => {
 
         let copy = [...shoes];
@@ -55,7 +91,7 @@ function App() {
         console.log(copy);
       }}>가나다순 정렬</button>
 
-      <button onClick={() => { navigate('/detail') }}>detail</button>
+      <button onClick={() => { navigate('/detail/0') }}>detail</button>
       <button onClick={() => { navigate('/') }}>home</button>
 
     </div >
