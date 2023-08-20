@@ -1,46 +1,37 @@
-import { useParams } from "react-router-dom";
-import data from "../data.js";
+import { useParams, } from "react-router-dom";
+import { Nav } from 'react-bootstrap'
+import data from '../data/data';
 import { useEffect, useState } from "react";
-import styled from 'styled-components'
 
-let Btn = styled.button`
-    background : ${props => props.bg};
-    color : ${props => props.bg == 'blue' ? 'white' : 'black'}
-`
 
 function Detail(props) {
 
     let [hi] = useState(data);
-    let [sale, setSale] = useState(0);
-    let [num, setNum] = useState(0);
-    let [non, setNon] = useState('');
-
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSale(1);
-        }, 2000);
-    }, [])
-
-    useEffect(() => {
-        isNaN(non) ? setNum(1) : setNum(0)
-    }, [non])
+    let [tab, setTab] = useState(0);
+    let [fade, setFade] = useState('')
 
     let { id } = useParams();
     let detail = props.shoes.find(function (x) {
         return x.id == id
     });
 
+    useEffect(() => {
+        setTimeout(() => {
+            setFade('end')
+        }, 100);
+        return () => {
+            setFade('')
+            clearTimeout();
+        }
+    }, [hi])
+
     return (
         <>
-            {
-                sale == 0 ? <div className="alert">
-                    2초 후에 사라짐
-                </div> : null
-            }
+
             {
                 id < hi.length ?
-                    <div className="container">
+                    <div className={"container start " + fade} >
+
                         <div className="row">
                             <div className="col-md-6">
                                 <img src={detail.img} width="100%" />
@@ -54,14 +45,37 @@ function Detail(props) {
 
                         </div>
 
-                        {num == 1 ? <div>문자</div> : null}
-                        <input type="text" onChange={(e) => { setNon(e.target.value) }}></input>
-                    </div>
+                        <Nav variant="tabs" defaultActiveKey="link0">
+                            <Nav.Item>
+                                <Nav.Link onClick={() => { setTab(0) }} eventKey="link0">버튼0</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link onClick={() => { setTab(1) }} eventKey="link1">버튼1</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link onClick={() => { setTab(2) }} eventKey="link2">버튼2</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                        <TabContent tab={tab} fade={fade}></TabContent>
+                    </div >
                     :
                     <div>없는 페이지임</div>
             }
         </>
     )
+}
+
+function TabContent(props) {
+
+    if (props.tab === 0) {
+        return <div className={"start " + props.fade}>내용0</div>
+    }
+    if (props.tab === 1) {
+        return <div className={"start " + props.fade}>내용1</div>
+    }
+    if (props.tab === 2) {
+        return <div className={"start " + props.fade}>내용2</div>
+    }
 }
 
 export default Detail;

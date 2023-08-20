@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -46,6 +50,11 @@
   background-size: cover;
 }
 
-.wr {
-  flex: 0 0 calc(33.33% - 20px);
+.start {
+  opacity: 0;
+}
+
+.end {
+  opacity: 1;
+  transition: opacity 3s;
 }
