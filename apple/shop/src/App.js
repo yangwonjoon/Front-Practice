@@ -6,7 +6,7 @@ import data from './data/data.js';
 import Detail from './component/Detail';
 import Product from './component/Product';
 import Cart from './component/Cart';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes, Link, useNavigate, Outlet } from 'react-router-dom';
 import axios from 'axios';
 
@@ -19,6 +19,13 @@ function App() {
   let [load, setLoad] = useState(1);
   let [fade, setFade] = useState('');
 
+  useEffect(() => {
+
+    if (!localStorage.getItem("watched")) {
+      localStorage.setItem("watched", '[]')
+    }
+  }, [])
+
   return (
     <div className="App">
 
@@ -26,10 +33,9 @@ function App() {
         <Container>
           <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
           <Nav className="me-auto">
-            <Link to={"/"}><Nav.Link href="#home">Home</Nav.Link ></Link>
-            <Link to={"/detail"}><Nav.Link href="#features">detail</Nav.Link></Link>
-            <Link to={"/cart"}><Nav.Link href="#cart">cart</Nav.Link></Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Link to={"/"}><Nav.Link href="/">Home</Nav.Link ></Link>
+            <Link to={"/detail"}><Nav.Link href="/detail/0">detail</Nav.Link></Link>
+            <Link to={"/cart"}><Nav.Link href="/cart">cart</Nav.Link></Link>
           </Nav>
         </Container>
       </Navbar>
@@ -58,8 +64,7 @@ function App() {
                   setLoad(0);
                   if (count == 1) {
                     axios.get('https://codingapple1.github.io/shop/data2.json').then((response) => {
-                      console.log(response.data);
-                      console.log(shoes)
+
                       let copy = [...shoes, ...response.data];
                       setShoes(copy)
                     }).catch(() => {
@@ -68,8 +73,6 @@ function App() {
                   }
                   if (count == 2) {
                     axios.get('https://codingapple1.github.io/shop/data3.json').then((response) => {
-                      console.log(response.data);
-                      console.log(shoes)
                       let copy = [...shoes, ...response.data];
                       setShoes(copy)
                     }).catch(() => {
@@ -77,7 +80,7 @@ function App() {
                     })
                   }
                   setCount(count + 1)
-                  console.log(count)
+
                   setLoad(1);
                 }}>더 보기</button>
             }
@@ -89,12 +92,9 @@ function App() {
               let copy = [...shoes];
               copy.sort((a, b) => a.title < b.title ? -1 : 1)
               setShoes(copy)
-              console.log(copy);
+
             }}>가나다순 정렬</button>
 
-            <button onClick={() => { navigate('/detail/0') }}>detail</button>
-            <button onClick={() => { navigate('/cart') }}>cart</button>
-            <button onClick={() => { navigate('/') }}>home</button>
           </Container></>}></Route>
         <Route path='/detail/:id' element={<Detail shoes={shoes} ></Detail>}></Route>
         <Route path='/cart' element={<Cart></Cart>}></Route>
