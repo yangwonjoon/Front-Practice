@@ -1,5 +1,7 @@
 .list-group {
-    display: none
+    visibility: hidden;
+    height: 0px;
+    transition: all 1s;
 }
 
 .black-bg {
@@ -11,7 +13,7 @@
     padding: 30px;
     visibility: hidden;
     opacity: 0;
-    transition: all 1s;
+    transition: all;
 }
 
 .white-bg {
@@ -23,4 +25,10 @@
 .show {
     visibility: visible;
     opacity: 1;
+}
+
+.show-nav {
+    visibility: visible;
+    height: 200px;
+    overflow: hidden;
 }
