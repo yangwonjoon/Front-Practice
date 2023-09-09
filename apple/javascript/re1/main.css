@@ -21,14 +21,3 @@
     border-radius: 5px;
     padding: 30px;
 }
-
-.show {
-    visibility: visible;
-    opacity: 1;
-}
-
-.show-nav {
-    visibility: visible;
-    height: 200px;
-    overflow: hidden;
-}
