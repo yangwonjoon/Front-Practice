@@ -16,7 +16,7 @@ function App() {
 
     var marker = new kakao.maps.Marker({
       position: new kakao.maps.LatLng(37.5540720468966, 126.920603903509), // 마커의 좌표
-      map: map // 마커를 표시할 지도 객체
+      map: map
     });
   }, []);
 
