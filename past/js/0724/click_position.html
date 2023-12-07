@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../../apple/images/lion.png" id="pic">
+
+    <script>
+        let $pic = document.querySelector('#pic');
+        $pic.onclick = function(event){
+            alert(event.type+":"+event.pageX+","+event.pageY+"\n이미지경로: "
+            +this.src
+            );
+        }
+    </script>
+</body>
+</html>

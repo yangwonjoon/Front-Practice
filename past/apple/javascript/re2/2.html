@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="alert alert-danger">
+        <span class="count">5</span>초 이내 구매시 사은품 증정
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        // console.log(document.querySelector('.alert'))
+        // setTimeout(function () {
+        //     document.querySelector('.alert').style.display = "none"
+        // }, 5000);
+
+        var count = 5
+
+        setInterval(function () {
+            count -= 1
+            $('.count').html(count)
+            if (count == 0) {
+                $('.alert').hide()
+            }
+
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

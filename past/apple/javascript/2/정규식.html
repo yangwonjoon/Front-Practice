@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+<!--    <input type="text" id="email">-->
+    <input type="text" id="passwd">
+    <button type="submit" id="submit">submit</button>
+</form>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+
+<script>
+    // $("form").on('submit', function (e) {
+    //     e.preventDefault();
+    //     console.log('click')
+    //     var input = $('#email').val();
+    //
+    //     if (/\S+@\S+\.\S+/.test(input)) {
+    //         console.log(input);
+    //     }else{
+    //         alert('잘못침')
+    //     }
+    // });
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        var input = $('#passwd').val();
+        console.log(input);
+        if(/[A-Z]/.test(input)){
+            console.log('대문자 있음');
+        }
+    })
+
+</script>
+</body>
+</html>

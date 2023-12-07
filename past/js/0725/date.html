@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        margin: 100px auto;
+        border: black solid 1px;
+        width: 400px;
+        height: 200px;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: blue;
+    }
+    h1, p{
+        text-align: center;
+        color: white;
+        font-family: bold;
+    }
+    .accent{
+        width: 100px;
+        height: 50px;
+    }
+</style>
+<body>
+    <div id="container">
+        <h1>공부한기간</h1>
+        <p><span class="accent" id="result"></span></p>
+    </div>
+
+    <script>
+        let now = new Date();
+        let firstDay = new Date("2023-07-1");
+        console.log(now);
+        let diff = now-firstDay;
+        let result =Math.floor(diff/(1000 * 60 * 60 * 24))
+        console.log(diff/(1000 * 60 * 60 * 24));
+        
+
+        document.getElementById('result').innerText = result+"일 경과하였습니다!" 
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                overflow: hidden;
+            }
+            .slide-container {
+                width: 400vw;
+                transition: all 1s;
+            }
+            .slide-box {
+                float: left;
+                width: 100vw;
+            }
+            .slide-box img {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="slide-container">
+                <div class="slide-box">
+                    <img src="../../images/car1.png" />
+                </div>
+                <div class="slide-box">
+                    <img src="../../images/car2.png" />
+                </div>
+                <div class="slide-box">
+                    <img src="../../images/car3.png" />
+                </div>
+                <div class="slide-box">
+                    <img src="../../images/car1.png" />
+                </div>
+            </div>
+        </div>
+
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3</button>
+
+        <button id="left">left</button>
+        <button id="right">right</button>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <script>
+            let index=0;
+
+            $('#btn1').on("click", function(){
+                $('.slide-container').css('transform','translateX(0vw)');
+                index=0;
+            })
+            $('#btn2').on("click", function(){
+                $('.slide-container').css('transform','translateX(-100vw)');
+                index=1;
+            })
+            $('#btn3').on("click", function(){
+                $('.slide-container').css('transform','translateX(-200vw)');
+                index=2;
+            })
+        
+
+            
+
+            $('#left').on("click", function(){
+                if(index === 0){return;}
+                index -= 1;
+                $('.slide-container').css('transform','translateX(-'+index*100+'vw)');
+                
+            })
+
+            $('#right').on("click", function(){
+                if(index === 3){return;}
+                index += 1;
+                $('.slide-container').css('transform','translateX(-'+index*100+'vw)');
+                
+            })
+
+
+        </script>
+    </body>
+</html>

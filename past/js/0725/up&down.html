@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        border: 1px black solid;
+    }
+    #container{
+        margin: 100px auto;
+        border: black solid 1px;
+        width: 400px;
+        height: 200px;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    
+    #result{
+        height: 100px;
+        line-height: 100px;
+    }
+
+    
+</style>
+<body>
+    <div id="container">
+        <button id="plus">plus</button>
+        <button id="minus">minus</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let plus = document.getElementById('plus');
+        let minus = document.getElementById('minus');
+        let num =0
+
+        plus.addEventListener('click',(e)=>{
+            e.preventDefault;
+            num++
+            document.getElementById('result').innerText = num;
+        })
+
+        minus.addEventListener('click',(e)=>{
+            e.preventDefault;
+            num--
+            document.getElementById('result').innerText = num;
+        })
+    </script>
+</body>
+</html>

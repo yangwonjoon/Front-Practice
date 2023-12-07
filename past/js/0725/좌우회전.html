@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        border: 1px black solid;
+    }
+    #container{
+        margin: 100px auto;
+        border: black solid 1px;
+        width: 400px;
+        height: 200px;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    
+    #result{
+        height: 50px;
+        width: 50px;
+        margin: 50px auto;
+        line-height: 100px;
+        background-color: blue;
+    }
+
+    
+</style>
+<body>
+    <div id="container">
+        <button id="left">left</button>
+        <button id="right">right</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let left = document.getElementById('left');
+        let right = document.getElementById('right');
+        let num = 0;
+
+        left.addEventListener('click', e =>{
+            e.preventDefault;
+            num -= 10;
+            document.getElementById('result').style.transform = "rotate("+num+"deg)";
+        })
+
+        right.addEventListener('click', e =>{
+            e.preventDefault;
+            num += 10;
+            document.getElementById('result').style.transform = "rotate("+num+"deg)";
+        })
+    </script>
+</body>
+</html>

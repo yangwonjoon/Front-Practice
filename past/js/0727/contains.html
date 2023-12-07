@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            padding: 50px;
+            margin: 100px auto;
+        }
+        #wrap article{
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        #box.on{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <section id="wrap">
+        <article id="box">click!</article>
+    </section>
+
+    <script>
+        let $wrap = document.querySelector('#wrap');
+        let $box = document.querySelector('#box');
+        $wrap.addEventListener('click',()=>{
+            let ison = $box.classList.contains('on');
+            console.log(ison);
+
+            if(ison){
+                $box.classList.remove('on');
+            }
+            else{
+                $box.classList.add('on');
+            }
+
+            //$box.classList.toggle('on');
+            // $box.style.backgroundColor = 'pink'
+        })
+    </script>
+</body>
+</html>

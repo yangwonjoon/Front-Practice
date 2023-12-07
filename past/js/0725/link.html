@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.naver.com">naver</a>
+
+    <script>
+        const link = document.querySelector('a');
+
+        link.addEventListener('click',(e)=>{
+            e.preventDefault(); //기본 기능 실행 막음
+            console.log('click link')
+        })
+    </script>
+</body>
+</html>
