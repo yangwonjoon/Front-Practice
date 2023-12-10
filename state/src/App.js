@@ -1,25 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { textState, charCountState } from './recoil';
+import { atom, useRecoilState, useRecoilValue } from 'recoil';
+import { useState } from 'react';
+
+
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <TextInput />
+        <CharacterCount></CharacterCount>
+      </div>
     </div>
   );
+}
+
+function TextInput() {
+  const [text, setText] = useRecoilState(textState);
+
+  const onChange = (e) => {
+    setText(e.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" value={text} onChange={onChange} />
+      <br />
+      Echo: {text}
+    </div>
+  );
+}
+
+function CharacterCount() {
+  const count = useRecoilValue(charCountState);
+
+  return <>Character Count: {count}</>;
 }
 
 export default App;
