@@ -1,44 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { textState, charCountState } from './recoil';
-import { atom, useRecoilState, useRecoilValue } from 'recoil';
+import { todoListState } from './recoil';
+import { TodoItemCreator } from './component/TodoItemCreator';
+import { TodoItem } from './component/TodoItem'
+import { atom, useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
 import { useState } from 'react';
 
 
 function App() {
 
+  const todoList = useRecoilValue(todoListState);
 
   return (
-    <div className="App">
-      <div>
-        <TextInput />
-        <CharacterCount></CharacterCount>
-      </div>
-    </div>
+    <>
+      {/* <TodoListStats /> */}
+      {/* <TodoListFilters /> */}
+      <TodoItemCreator />
+
+      {todoList.map((todoItem) => (
+        <TodoItem key={todoItem.id} item={todoItem} />
+      ))}
+    </>
   );
-}
-
-function TextInput() {
-  const [text, setText] = useRecoilState(textState);
-
-  const onChange = (e) => {
-    setText(e.target.value);
-  };
-
-  return (
-    <div>
-      <input type="text" value={text} onChange={onChange} />
-      <br />
-      Echo: {text}
-    </div>
-  );
-}
-
-function CharacterCount() {
-  const count = useRecoilValue(charCountState);
-
-  return <>Character Count: {count}</>;
 }
 
 export default App;
