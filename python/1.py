@@ -1,18 +1,21 @@
-from PIL import Image, ImageTk
-import tkinter as tk
+class Car:
+  speed = 0
+  def upspeed(self,value):
+    self.speed += value
+    print("현재 속도:",self.speed)
 
-#윈도우 생성, 캔버스 생성
-window = tk.Tk()
-canvas = tk.Canvas(window,width=500,height=500)
-canvas.pack()
+class Sedan(Car):
+  def upspeed(self,value):
+    self.speed += value
+    if self.speed > 150:
+      self.speed = 150
+      print(self.speed)
 
-#이미지
-img = Image.open("")
+class Truck(Car):
+  pass
 
-#tk형식으로 영상 변환
-tk_img = ImageTk.PhotoImage(img)
+truck1=Truck()
+sedan1=Sedan()
 
-#캔버스에 영상 표시
-canvas.create_image(250,250,image=tk_img)
-
-window.mainloop()
+truck1.upspeed(200)
+sedan1.upspeed(300)
