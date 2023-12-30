@@ -14,8 +14,7 @@ function App() {
 
   return (
     <>
-      {/* <TodoListStats /> */}
-      {/* <TodoListFilters /> */}
+
       <TodoItemCreator />
 
       {todoList.map((todoItem) => (
