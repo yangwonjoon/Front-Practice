@@ -4,8 +4,8 @@ import './App.css';
 import { todoListState } from './recoil';
 import { TodoItemCreator } from './component/TodoItemCreator';
 import { TodoItem } from './component/TodoItem'
-import { atom, useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
-import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+
 
 
 function App() {
