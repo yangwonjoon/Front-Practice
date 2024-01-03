@@ -14,11 +14,7 @@ function App() {
   return (
     <>
 
-      <TodoItemCreator />
 
-      {todoList.map((todoItem) => (
-        <TodoItem key={todoItem.id} item={todoItem} />
-      ))}
     </>
   );
 }
