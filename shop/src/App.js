@@ -11,7 +11,7 @@ import { Detail } from './pages/detail.js';
 function App() {
 
   const [shoes, setShoes] = useState(data);
-  //goodㅎ
+
 
   return (
     <div>
