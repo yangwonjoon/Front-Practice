@@ -30,7 +30,7 @@ function App() {
 
 
       <Routes>
-        <Route path="/" element={<Main shoes={shoes}></Main>} />
+        <Route path="/" element={<Main shoes={shoes} setShoes={setShoes}></Main>} />
         <Route path="/detail/:id" element={<Detail shoes={shoes}></Detail>} />
         <Route path="/about" />
         <Route path='*' element={<>404페이지</>}></Route>

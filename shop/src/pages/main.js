@@ -1,4 +1,10 @@
-export const Main = ({ shoes }) => {
+import axios from 'axios'
+import { useState } from 'react'
+
+export const Main = ({ shoes, setShoes }) => {
+
+    const [clickNum, setClickNum] = useState(0)
+
     return (
         <>
             <div>
@@ -13,7 +19,35 @@ export const Main = ({ shoes }) => {
                         )
                     })
                 }
-            </div></>
+            </div>
+            <button onClick={() => {
+
+
+
+                if (clickNum == 1) {
+                    axios.get('https://codingapple1.github.io/shop/data2.json')
+                        .then((res) => {
+                            let copy = res.data
+                            setShoes([...shoes, ...copy])
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }
+                if (clickNum == 2) {
+                    axios.get('https://codingapple1.github.io/shop/data3.json')
+                        .then((res) => {
+                            let copy = res.data
+                            setShoes([...shoes, ...copy])
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })
+                }
+
+            }}>버튼</button >
+
+        </>
     )
 }
 
