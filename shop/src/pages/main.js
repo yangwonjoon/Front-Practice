@@ -4,7 +4,7 @@ import { useState } from 'react'
 export const Main = ({ shoes, setShoes }) => {
 
     const [clickNum, setClickNum] = useState(0)
-
+//해
     return (
         <>
             <div>
