@@ -1,15 +1,21 @@
 import './App.css';
+import { useRef } from 'react';
 
 function App() {
 
-  const test = () => {
-    console.log('hi')
+  let ref = useRef(0);
+
+  console.log('hi')
+
+  function handleClick() {
+    ref.current = ref.current + 1;
+    alert('You clicked ' + ref.current + ' times!');
   }
 
   return (
-    <div className="App">
-      <button onClick={() => test}>테스트 버튼</button>
-    </div>
+    <button onClick={handleClick}>
+      Click me!
+    </button>
   );
 }
 
