@@ -2,7 +2,7 @@ import './App.css';
 import { useRef } from 'react';
 
 function App() {
-  //ref
+  //action
   let ref = useRef(0);
 
   console.log('hi')
