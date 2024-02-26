@@ -40,12 +40,14 @@ let progammingbook: ProgrammingBook = {
     skill: "wonjoon"
 }
 
+let book: Book = {
+    name: "yang",
+    price: 30000
+}
+
 function func(book: Book) {
     console.log(book)
 }
 
-func({ 
-    name: "한 입 크기로 잘라먹는 리액트",
-    price: 33000
-});
+func(book);
 

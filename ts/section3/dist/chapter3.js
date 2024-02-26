@@ -12,11 +12,12 @@ let progammingbook = {
     price: 2323,
     skill: "wonjoon"
 };
+let book = {
+    name: "yang",
+    price: 30000
+};
 function func(book) {
     console.log(book);
 }
-func({
-    name: "한 입 크기로 잘라먹는 리액트",
-    price: 33000
-});
+func(book);
 export {};
