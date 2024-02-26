@@ -1,16 +1,37 @@
-body {
+.App {}
+
+/* editor */
+
+.DiaryEditor {
+  border: 1px solid gray;
+  text-align: center;
   padding: 20px;
 }
 
-.App {
-  margin: 0 auto;
+.DiaryEditor input,
+textarea {
+  margin-bottom: 20px;
   width: 500px;
 }
 
-.App>section {
-  padding: 20px;
-  background-color: rgb(245, 245, 245);
-  border: 1px solid rgb(240, 240, 240);
-  border-radius: 5px;
-  margin-bottom: 10px;
+.DiaryEditor input {
+  padding: 10px;
 }
+
+.DiaryEditor textarea {
+  padding: 10px;
+  height: 150px;
+}
+
+.DiaryEditor select {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.DiaryEditor button {
+  width: 500px;
+  padding: 10px;
+  cursor: pointer;
+}
+
