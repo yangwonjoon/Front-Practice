@@ -43,6 +43,7 @@ logs
 
 node_modules
 bower_components
+package-lock.json
 
 *.sublime*
 
@@ -68,3 +69,4 @@ sketch
 # Ignore all local history of files
 .history
 .ionide
+
