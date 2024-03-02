@@ -1,4 +1,4 @@
-//함수 타입
+//함수 타입 표현식
 
 type operation = (a: number, b: number) => number
 
@@ -11,9 +11,8 @@ console.log(add(1, 2))
 
 type operation2 = {
     (a: number, b: number): number,
-    name: string
 }
 
 const sub: operation2 = (a, b) => a - b
 
-console.log()
+console.log(sub(4, 2))
