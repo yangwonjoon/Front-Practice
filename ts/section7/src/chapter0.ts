@@ -7,7 +7,8 @@ function func<T>(param: T): T {
 
 let num = func(10)
 let str = func('hi')
-let arr = func<string>('hi')
+let arr = func<'hi'>('hi')
+
 console.log(arr)
 
 

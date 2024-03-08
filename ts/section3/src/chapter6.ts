@@ -19,3 +19,16 @@ let cat = {
     color: "yellow",
 } as const;
 // 모든 프로퍼티가 readonly를 갖도록 단언됨
+
+
+
+type Post = {
+    title: string;
+    author?: string;
+};
+
+let post: Post = {
+    title: "게시글1",
+};
+
+const length: number = post.author!.length

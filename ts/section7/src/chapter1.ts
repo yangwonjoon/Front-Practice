@@ -10,9 +10,9 @@ let [a, b] = swap('1', 2)
 
 
 //배열 받을때
-
-function returnFirstValue<T>(data: [T, ...unknown[]]) {
-    return data[1];
+//튜플타입 선언후 rest 쓴거
+function returnFirstValue<T>(...data: [T, ...unknown[]]) {
+    return data[0];
 }
 
 let num = returnFirstValue([0, 1, 2]);
@@ -20,6 +20,13 @@ let num = returnFirstValue([0, 1, 2]);
 
 let str = returnFirstValue([1, "hello", "mynameis"]);
 // string
+
+function test(...rest) {
+    console.log(rest)
+}
+
+console.log(test(1, 2, 3, 4))
+
 
 
 
