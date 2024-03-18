@@ -1,6 +1,12 @@
-function example(param) {
-    const res = param || 'res';
-    return res;
+function a() {
+    let a = '1'
+    console.log('20')
+    function b() {
+        console.log(a)
+    }
+
+
+    return a;
 }
 
-console.log(example('ji'))
+a.b()

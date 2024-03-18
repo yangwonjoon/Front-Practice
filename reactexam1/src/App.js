@@ -1,16 +1,20 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { DiaryEditor } from './component/diaryeditor';
 
 function App() {
 
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    setCount(count + 1)
+  }, [])
 
   return (
-    <div className="App">
-      <DiaryEditor></DiaryEditor>
-    </div>
-  );
+    <>{count}</>
+  )
 }
+
 
 export default App;
