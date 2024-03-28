@@ -11,3 +11,13 @@
   transition: all 0.1s;
 }
    */
+
+
+
+/* @keyframes slideCard {
+  to { transform: translateX(100px); }
+}
+
+.card-move {
+  animation: slideCard 0.5s ease-out forwards;
+} */
