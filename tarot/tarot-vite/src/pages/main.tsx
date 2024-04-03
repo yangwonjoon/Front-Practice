@@ -11,8 +11,8 @@ export const Main = () => {
         if (isAnimated) {
 
             const radius = 300; // 반원의 반지름
-            const arcCenterX = 0; // 반원 중심의 X 좌표
-            const arcCenterY = 0; // 반원 중심의 Y 좌표
+            const arcCenterX = 0; // 반원 중심 X 좌표
+            const arcCenterY = 0; // 반원 중심 Y 좌표
             const spread = 180; // 카드가 퍼질 각도 
             const startAngle = 90 - spread / 2; // 시작 각도
             const increment = spread / (count.length - 1); // 각 카드 사이의 각도 증가분

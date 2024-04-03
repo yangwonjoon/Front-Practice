@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 import card1 from '../assets/images/tarot1.svg';
 import card2 from '../assets/images/tarot2.svg';
@@ -11,13 +11,11 @@ interface RotationAngles {
 
 export const Intro = () => {
 
-    // const cardsRef = useRef<HTMLDivElement[]>([]);
-
     const card = [card1, card2, card3]
     //카드의 회전 각도 저장
     const [rotationAngles, setRotationAngles] = useState<RotationAngles[]>([]);
 
-    //마우스 올렸을때 함수
+    //마우스 올렸을때
     const handleMouseMove = (index: number, e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
 
         const rect = e.currentTarget.getBoundingClientRect();
@@ -43,8 +41,6 @@ export const Intro = () => {
     const handleMouseLeave = () => {
         setRotationAngles([]);
     };
-
-
 
     return (
         <>
