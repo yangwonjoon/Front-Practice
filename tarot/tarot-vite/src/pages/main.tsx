@@ -27,7 +27,7 @@ export const Main = () => {
         return Array.from({ length: 30 }, (_, i) => {
             const angle = (0 + 180 / 29 * i) * (Math.PI / 180);
             return {
-                x: 250 * Math.cos(angle),
+                x: 500 * Math.cos(angle),
                 y: 250 * Math.sin(angle),
             };
         });
@@ -49,7 +49,7 @@ export const Main = () => {
                     <div className='w-12 h-20 bg-black m-auto border border-white relative'>
                         {positions.map((card, i) => (
                             visibleCards[i] && (
-                                <div key={i} className={`card card-${i} w-12 h-20 bg-black border border-white absolute transition-all duration-1000`}
+                                <div key={i} className={`card card-${i} w-12 h-20 bg-black border border-white absolute transition-all duration-1000 cursor-pointer hover:scale-110`}
                                     style={{ left: `${card.x}px`, top: `${card.y}px` }}
                                     onClick={() => handleCardClick(i)} />
                             )
