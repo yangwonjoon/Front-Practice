@@ -1,8 +1,4 @@
 .card {
-  transition: transform 1s;
+  transition: all transform 1s;
   position: absolute;
-}
-
-.card-animate {
-  /* This will be populated dynamically with the correct transform values */
 }

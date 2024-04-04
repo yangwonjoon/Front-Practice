@@ -17,8 +17,10 @@ export const Main = () => {
         if (isAnimated) {
             setPositions(spread());
         } else {
-            setPositions(Array.from({ length: 30 }, (_, i) => ({ x: i, y: i })));
             setVisibleCards(Array(30).fill(true))
+            setPositions(Array.from({ length: 30 }, (_, i) => ({ x: i, y: i })));
+
+
             setSelectedCards([])
         }
     }, [isAnimated]);
