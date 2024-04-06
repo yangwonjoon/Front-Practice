@@ -12,8 +12,8 @@ function App() {
     <div className='w-screen h-screen bg-main relative'>
       <Logo></Logo>
 
-      {/* <Intro></Intro> */}
-      <Main></Main>
+      <Intro></Intro>
+      {/* <Main></Main> */}
     </div>
   </>
   );
