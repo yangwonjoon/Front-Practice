@@ -13,4 +13,4 @@
 
 //planet, user, userName
 
-console.log(typeof 1)
+console.log('4' % 3)
