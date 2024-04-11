@@ -1,3 +1,5 @@
+//2.타입을 미리 지정하기 애매할때
+
 let user: string = 'kim';
 let age: number | undefined = undefined;
 let married: boolean = false;

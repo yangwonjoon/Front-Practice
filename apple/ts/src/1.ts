@@ -1,3 +1,5 @@
+//1. 타입스크립트 기본타입 정리
+
 let myName = 'yang'
 let age = 26
 let local = 'paju'
