@@ -1,5 +1,8 @@
 //타입 확정하기 Narrowing & Assertion
 
+//narrowing: 타입이 불확실할때 타입을 좁혀서 확실하게 하는것, assertion: narrowing과 비슷하나 단언하여 as로 타입을 변환하는것 처럼 하는것
+
+
 // 1)숫자여러개를 array 자료에 저장해놨는데
 // 가끔 '4', '5' 이런 식의 문자타입의 숫자가 발견되고 있습니다.
 // 이걸 클리닝해주는 함수가 필요합니다. 
@@ -25,3 +28,15 @@ function change(x: (number | string)[]) {
 
 
 
+let 철수쌤 = { subject: 'math' }
+let 영희쌤 = { subject: ['science', 'english'] }
+let 민수쌤 = { subject: ['science', 'art', 'korean'] }
+
+function teacher(subject: { subject: (string | string[]) }): string {
+    if (typeof (subject.subject) === 'string') {
+        return subject.subject
+    } else if (Array.isArray(subject.subject)) {
+        return subject.subject[subject.subject.length - 1]
+    }
+}
+console.log(teacher(민수쌤))
