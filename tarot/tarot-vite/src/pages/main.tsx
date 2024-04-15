@@ -5,13 +5,7 @@ export const Main = () => {
     const [isAnimated, setIsAnimated] = useState(false);
     const [positions, setPositions] = useState([]);
     const [selectedCards, setSelectedCards] = useState([]);
-<<<<<<< HEAD
-    const [visibleCards, setVisibleCards] = useState(Array(12).fill(true));
-=======
-
     const [visibleCards, setVisibleCards] = useState(Array(30).fill(true));
->>>>>>> b60d2692ce020e23c79612e07af9d4bc8bc3f0d0
-
 
     useEffect(() => {
         setTimeout(() => {
@@ -57,12 +51,7 @@ export const Main = () => {
         <>
             <div className="w-full h-4/5">
                 <div className='w-full h-2/3 pt-10'>
-<<<<<<< HEAD
-                    <div className='w-20 h-32 bg-black m-auto border border-white relative'>
-=======
-
                     <div className='w-12 h-20 bg-black m-auto border border-white relative'>
->>>>>>> b60d2692ce020e23c79612e07af9d4bc8bc3f0d0
                         {positions.map((card, i) => (
                             visibleCards[i] && (
                                 <div key={i} className={`card card-${i} w-20 h-32 bg-black border border-white absolute transition-all duration-1000 cursor-pointer hover:scale-110`}
