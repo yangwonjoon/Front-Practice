@@ -5,7 +5,7 @@ export const Main = () => {
     const [isAnimated, setIsAnimated] = useState(false);
     const [positions, setPositions] = useState([]);
     const [selectedCards, setSelectedCards] = useState([]);
-    const [visibleCards, setVisibleCards] = useState(Array(30).fill(true));
+    const [visibleCards, setVisibleCards] = useState(Array(12).fill(true));
 
     useEffect(() => {
         setTimeout(() => {
@@ -17,8 +17,8 @@ export const Main = () => {
         if (isAnimated) {
             setPositions(spread());
         } else {
-            setVisibleCards(Array(30).fill(true))
-            setPositions(Array.from({ length: 30 }, (_, i) => ({ x: i, y: i })));
+            setVisibleCards(Array(12).fill(true))
+            setPositions(Array.from({ length: 12 }, (_, i) => ({ x: i, y: i })));
 
 
             setSelectedCards([])
@@ -26,8 +26,8 @@ export const Main = () => {
     }, [isAnimated]);
 
     const spread = () => {
-        return Array.from({ length: 30 }, (_, i) => {
-            const angle = (0 + 180 / 29 * i) * (Math.PI / 180);
+        return Array.from({ length: 12 }, (_, i) => {
+            const angle = (0 + 180 / 11 * i) * (Math.PI / 180);
             return {
                 x: 500 * Math.cos(angle),
                 y: 250 * Math.sin(angle),
@@ -48,10 +48,10 @@ export const Main = () => {
         <>
             <div className="w-full h-4/5">
                 <div className='w-full h-2/3 pt-10'>
-                    <div className='w-12 h-20 bg-black m-auto border border-white relative'>
+                    <div className='w-20 h-32 bg-black m-auto border border-white relative'>
                         {positions.map((card, i) => (
                             visibleCards[i] && (
-                                <div key={i} className={`card card-${i} w-12 h-20 bg-black border border-white absolute transition-all duration-1000 cursor-pointer hover:scale-110`}
+                                <div key={i} className={`card card-${i} w-20 h-32 bg-black border border-white absolute transition-all duration-1000 cursor-pointer hover:scale-110`}
                                     style={{ left: `${card.x}px`, top: `${card.y}px` }}
                                     onClick={() => handleCardClick(i)} />
                             )
