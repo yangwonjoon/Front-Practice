@@ -1,12 +1,14 @@
-//alert의 반환값은 undefined
+/*
+2-12장. nullish 병합 연산자
 
-// 1) age(나이)가 14세 이상 90세 이하에 속하는지를 확인하는 if문을 작성하세요.
-// "이상과 이하"는 age(나이) 범위에 14나 90이 포함된다는 의미입니다.
-// age = 12
-// if (!(14 <= age <= 90)) {
-//     // console.log('아님')
-// }
+[몰랐던 부분]
+    1. alert의 반환값은 undefined
+    2. nullish의 존재
 
+[밑에 코드]
+    1. nullish 테스트
+
+*/
 
 let height = 0
 
