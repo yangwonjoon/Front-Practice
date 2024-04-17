@@ -50,7 +50,6 @@ export const Intro = () => {
         const newOverlayStyles = overlayStyles.slice();
         newOverlayStyles[index] = { backgroundPosition: '50% 50%', opacity: 0, filter: 'brightness(1)' };
         setOverlayStyles(newOverlayStyles);
-
     };
 
     return (

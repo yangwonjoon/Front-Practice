@@ -13,20 +13,12 @@ export default {
       'white': '#FFFFFF',
       'black': '#000000',
       'logo': '#D4D3B8'
-      // 'darkly': 'rgba(0, 0, 0, 0.3)'
     },
     extend: {
-      // keyframes: {
-      //   wiggle: {
-      //     '0%, 100%': { transform: 'rotate(-3deg)' },
-      //     '50%': { transform: 'rotate(3deg)' },
-      //   },
-      // },
-      // animation: {
-      //   wiggle: 'wiggle 1s infinite',
-      // },
+      backgroundImage: {
+        'tarot-back': "url('./assets/images/back.svg')"
+      }
     },
-
   },
   plugins: [],
 }
