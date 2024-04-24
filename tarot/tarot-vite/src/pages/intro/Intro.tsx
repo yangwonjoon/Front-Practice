@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import card1 from '../assets/images/back.svg';
-import card2 from '../assets/images/back.svg';
-import card3 from '../assets/images/back.svg';
-import { useCardMove } from '../hooks/useCardMove';
-import { IntroSelect } from './introSelect';
-import '../App.css';
+import card1 from '../../assets/images/back.svg';
+import card2 from '../../assets/images/back.svg';
+import card3 from '../../assets/images/back.svg';
+import { useCardMove } from '../../hooks/useCardMove';
+import { IntroSelect } from './IntroSelect';
 
 export const Intro = () => {
     const cards = [card1, card2, card3];
+
     const [selectedCard, setSelectedCard] = useState<string | null>(null);
     const [selectedCardModal, setSelectedCardModal] = useState(false);
     const { rotationAngles, overlayStyles, handleMouseMove, handleMouseLeave } = useCardMove(cards);

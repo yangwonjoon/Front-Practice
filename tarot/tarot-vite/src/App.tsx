@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
 
-import { Intro } from './pages/intro';
+import { Intro } from './pages/intro/Intro';
 import { Main } from './pages/main'
 import { Logo } from './component/logo';
 
