@@ -1,5 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom'
-// import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 
 import { Intro } from './pages/intro';
@@ -7,12 +6,6 @@ import { Main } from './pages/main'
 import { Logo } from './component/logo';
 
 function App() {
-
-  // const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   document.body.className = 'bg-main';
-  // }, []);
 
   return (
     <>

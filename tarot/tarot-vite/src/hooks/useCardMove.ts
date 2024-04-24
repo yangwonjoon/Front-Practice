@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { RotationAngles } from '../types/rotationAngles';
+import { IRotationAngles } from '../types/rotationAngles';
 
 
 export const useCardMove = (cards: string[]) => {
 
-    const [rotationAngles, setRotationAngles] = useState<RotationAngles[]>(cards.map(() => ({ x: 0, y: 0 })));
+    const [rotationAngles, setRotationAngles] = useState<IRotationAngles[]>(cards.map(() => ({ x: 0, y: 0 })));
     const [overlayStyles, setOverlayStyles] = useState(cards.map(() => ({
         backgroundPosition: '100%', opacity: 0, filter: 'brightness(1)'
     })));
