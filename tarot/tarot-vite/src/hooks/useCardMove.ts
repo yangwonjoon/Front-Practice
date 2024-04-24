@@ -1,0 +1,49 @@
+import { useState } from 'react';
+import { RotationAngles } from '../types/rotationAngles';
+
+
+export const useCardMove = (cards: string[]) => {
+
+    const [rotationAngles, setRotationAngles] = useState<RotationAngles[]>(cards.map(() => ({ x: 0, y: 0 })));
+    const [overlayStyles, setOverlayStyles] = useState(cards.map(() => ({
+        backgroundPosition: '100%', opacity: 0, filter: 'brightness(1)'
+    })));
+
+    const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+
+        const rect = e.currentTarget.getBoundingClientRect();
+        const maxRotation = 40;
+        const offsetX = e.clientX - rect.left;
+        const offsetY = e.clientY - rect.top;
+
+        const rotationYAngle = (offsetX - rect.width / 2) / rect.width * maxRotation;
+        const rotationXAngle = (rect.height / 2 - offsetY) / rect.height * maxRotation;
+
+        const newRotationAngles = rotationAngles.slice();
+        newRotationAngles[index] = { x: rotationXAngle, y: rotationYAngle };
+        setRotationAngles(newRotationAngles);
+
+        const gradientX = (offsetX / rect.width) * 100;
+        const gradientY = (offsetY / rect.height) * 100;
+        const newOverlayStyles = overlayStyles.slice();
+
+        newOverlayStyles[index] = {
+            backgroundPosition: `${gradientX}% ${gradientY}%`,
+            opacity: 1.2,
+            filter: 'brightness(1.5)'
+        };
+        setOverlayStyles(newOverlayStyles);
+    };
+
+    const handleMouseLeave = (index: number) => {
+        const newRotationAngles = rotationAngles.slice();
+        newRotationAngles[index] = { x: 0, y: 0 };
+        setRotationAngles(newRotationAngles);
+
+        const newOverlayStyles = overlayStyles.slice();
+        newOverlayStyles[index] = { backgroundPosition: '50% 50%', opacity: 0, filter: 'brightness(1)' };
+        setOverlayStyles(newOverlayStyles);
+    };
+
+    return { rotationAngles, overlayStyles, handleMouseMove, handleMouseLeave };
+};
