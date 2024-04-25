@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import { IntroSelectProps } from "../../types/rotationAngles";
+import { IntroSelectProps } from "../../types/types";
 
 export const IntroSelect: React.FC<IntroSelectProps> = ({ card, close }) => {
     const [isVisible, setIsVisible] = useState(false);
