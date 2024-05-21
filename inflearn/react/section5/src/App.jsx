@@ -1,21 +1,34 @@
-import { useRef } from 'react'
-import './App.css'
+import React, { useState, useLayoutEffect, useRef } from 'react';
 
 function App() {
-  const inputRef = useRef(null);
+  const boxRef = useRef();
+  const [boxSize, setBoxSize] = useState({ width: 100, height: 100 });
 
-  const focusInput = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
+  useLayoutEffect(() => {
+    const { width, height } = boxRef.current.getBoundingClientRect();
+    console.log('useLayoutEffect:', width, height);
+    // 무한 루프를 방지하기 위해 조건문 추가
+    if (boxSize.width !== width || boxSize.height !== height) {
+      setBoxSize({ width, height });
     }
-  };
+  }, [boxSize]);
 
   return (
     <div>
-      <input ref={inputRef} type="text" placeholder="Focus me on button click" />
-      <button onClick={focusInput}>Focus Input</button>
+      <div
+        ref={boxRef}
+        style={{
+          width: `${boxSize.width}px`,
+          height: `${boxSize.height}px`,
+          backgroundColor: 'lightblue',
+          transition: 'width 0.5s, height 0.5s',
+        }}
+      ></div>
+      <button onClick={() => setBoxSize({ width: boxSize.width + 50, height: boxSize.height + 50 })}>
+        Increase Size
+      </button>
     </div>
   );
 }
 
-export default App
+export default App;
