@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>문제 1</h1>
+    <p>var pants = 20;
+        var socks = 100;
+        `바지${pants} 양말${socks}`;
+        이렇게 백틱기호를 이용하면 `바지20 양말100`이라는 멋진 문자가 완성됩니다.
+
+        하지만 쓰고보니 단어 순서가 약간 잘못된걸 발견합니다.
+
+        양말이라는 단어가 왼쪽, 바지라는 단어가 오른쪽에 와야합니다.
+
+        그래서 문자가 `양말20 바지100`으로 바뀌게 만들고 싶습니다.
+
+        Q. tagged literal 해체분석기를 이용해서 단어순서를 바꾸려면 어떻게해야할까요?
+
+        (해체분석기`바지${pants} 양말${socks}`; 이렇게 코드를 실행하면 콘솔창에 `양말20 바지100`이라는 문장이 떠야합니다.)</p>
+    <h1>문제 2</h1>
+    <p></p>
+    <script>
+        var pants = 0;
+        var socks = 100;
+
+        console.log(`바지${pants} 양말${socks}`)
+
+        function change(word, ...rest) {
+            if (rest[0] === 0) {
+                console.log('바지다팔렸어요 양말100')
+            } else {
+                console.log(word[1], rest[0], word[0], rest[1])
+            }
+        }
+        change`바지${pants} 양말${socks}`
+
+    </script>
+</body>
+
+</html>
