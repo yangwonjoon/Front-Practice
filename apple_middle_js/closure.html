@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function createCounter() {
+            let count = 0; // 외부 함수의 변수
+
+            return function () { // 내부 함수 (클로저)
+                count++; // 외부 함수의 변수에 접근
+                return count;
+            };
+        }
+        const count = createCounter()
+        console.log(count())
+        console.log(count())
+        console.log(count())
+    </script>
+</body>
+
+</html>
