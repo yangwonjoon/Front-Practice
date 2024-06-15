@@ -9,18 +9,16 @@
 
 <body>
     <script>
-        function createCounter() {
-            let count = 0; // 외부 함수의 변수
+        let person = 'Yang';
+        let age = 26;
 
-            return function () { // 내부 함수 (클로저)
-                count++; // 외부 함수의 변수에 접근
-                return count;
-            };
-        }
-        const count = createCounter()
-        console.log(count())
-        console.log(count())
-        console.log(count())
+        function tag(strings, ...rest) {
+            console.log(strings); // ['Hi,','is','a']
+            console.log(rest[0]); // 'Yang'
+            console.log(rest[1]); // 26
+        };
+
+        let output = tag`Hi, ${person} is a ${age}`;
     </script>
 </body>
 
