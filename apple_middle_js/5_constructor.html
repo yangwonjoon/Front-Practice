@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        var product1 = { name : 'shirts', price : 50000 };
+        var product2 = { name : 'pants', price : 60000 };
+        앞으로 몇십개를 더 만들어야해서 하드코딩은 그만두고 constructor를 만들어서 오브젝트를 뽑아내려고 합니다.
+
+        Q1. 위처럼 생긴 상품오브젝트들을 뽑아낼 수 있는 constructor를 제작해보세요.
+
+        그리고 실제 상품 두개를 뽑아보십시오.
+    </p>
+    <script>
+        function product(name, price) {
+            this.name = name;
+            this.price = price;
+            this.pay = function () {
+                console.log(`세금은 ${this.price}`)
+            }
+        }
+
+        product1 = new product('shirts', 50000)
+        product2 = new product('pants', 60000)
+
+    </script>
+</body>
+
+</html>
