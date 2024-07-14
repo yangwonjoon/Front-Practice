@@ -1,4 +1,3 @@
-#파이썬 말고?
 def canTransportInTime(time, a, b, g, s, w, t):
     total_gold = 0
     total_silver = 0
