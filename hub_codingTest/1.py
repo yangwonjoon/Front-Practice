@@ -1,37 +1,34 @@
-def canTransportInTime(time, a, b, g, s, w, t):
+def canTransport(time, required_gold, required_silver, golds, silvers, weight, travel_times):
     total_gold = 0
     total_silver = 0
     total_combined = 0
     
-    for i in range(len(g)):
-        # 최대 왕복 횟수 계산
-        max_trips = time // (2 * t[i])
-        if time % (2 * t[i]) >= t[i]:
+    for i in range(len(golds)):
+        max_trips = time // (2 * travel_times[i])
+        if time % (2 * travel_times[i]) >= travel_times[i]:
             max_trips += 1
         
-        # 운반 가능한 금, 은, 금+은의 양 계산
-        max_gold = min(g[i], max_trips * w[i])
-        max_silver = min(s[i], max_trips * w[i])
-        max_combined = min(g[i] + s[i], max_trips * w[i])
+        max_gold = min(golds[i], max_trips * weight[i])
+        max_silver = min(silvers[i], max_trips * weight[i])
+        max_combined = min(golds[i] + silvers[i], max_trips * weight[i])
         
         total_gold += max_gold
         total_silver += max_silver
         total_combined += max_combined
         
-        # 목표를 충족하는지 확인
-        if total_gold >= a and total_silver >= b and total_combined >= a + b:
+        if total_gold >= required_gold and total_silver >= required_silver and total_combined >= required_gold + required_silver:
             return True
     
     return False
 
-def solution(a, b, g, s, w, t):
+def solution(required_gold, required_silver, golds, silvers, weight, travel_times):
     left = 0
-    right = 10**18
+    right = 10**12
     answer = right
     
     while left <= right:
         mid = (left + right) // 2
-        if canTransportInTime(mid, a, b, g, s, w, t):
+        if canTransport(mid, required_gold, required_silver, golds, silvers, weight, travel_times):
             answer = mid
             right = mid - 1
         else:
@@ -39,6 +36,6 @@ def solution(a, b, g, s, w, t):
     
     return answer
 
-# 테스트 예시
+
 print(solution(10, 10, [100], [100], [7], [10]))  # 50
 print(solution(90, 500, [70, 70, 0], [0, 0, 500], [100, 100, 2], [4, 8, 1]))  # 499

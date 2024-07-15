@@ -1,43 +1,72 @@
-import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
-interface Product {
-  id: string;
-  name: string;
+interface Data {
+  foodList: string;
+  coa: string;
   price: number;
 }
 
-const App: React.FC = () => {
-  const market: string[] = ['생선', '과일'];
-  const fish: string[] = ['고등어', '갈치', '대게', '연어', '삼치'];
-  const fishPrice: number[] = [1000, 2000, 3000, 4000, 2000];
-  const fruit: string[] = ['사과', '멜론', '포도', '복숭아'];
-  const fruitPrice: number[] = [2000, 3000, 6000, 2000];
-
-  const createProductObj = (products: string[], prices: number[]): Product[] => {
-    return products.map((product, index) => ({
-      id: product, 
-      name: product,
-      price: prices[index]
-    }));
+const fetchData = async (url: string) => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching data from ${url}:`, error);
+    throw error;
   }
+};
 
-  const fishProducts: Product[] = createProductObj(fish, fishPrice);
-  const fruitProducts: Product[] = createProductObj(fruit, fruitPrice);
+const userFoodList = async () => fetchData('/api/userFoodList');
+const foodCOA = async () => fetchData('/api/foodCOA');
+const foodPrice = async () => fetchData('/api/foodPrice');
+
+const getData = async (): Promise<Data> => {
+  try {
+    const foodList = await userFoodList();
+    const coa = await foodCOA();
+    const price = await foodPrice();
+    return { foodList, coa, price };
+  } catch (error) {
+    console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+    throw error;
+  }
+};
+
+function App() {
+  const [data, setData] = useState<Data | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleClick = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const result = await getData();
+      setData(result);
+      setLoading(false);
+    } catch (error) {
+      setError('데이터를 가져오는 중 오류가 발생했습니다.');
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
-      <h1>생선</h1>
-      {fishProducts.map((product) => (
-        <div key={product.id}>
-          {product.name} {product.price}원
+      <button onClick={handleClick} disabled={loading}>
+        {loading ? '로딩...' : '데이터 가져오기'}
+      </button>
+      {error && <p>{error}</p>}
+      {data && (
+        <div>
+          <h2>음식 목록</h2>
+          <p>{data.foodList}</p>
+          <h2>원자재 정보</h2>
+          <p>{data.coa}</p>
+          <h2>가격 정보</h2>
+          <p>{data.price}</p>
         </div>
-      ))}
-      <h1>과일</h1>
-      {fruitProducts.map((product) => (
-        <div key={product.id}>
-          {product.name} {product.price}원
-        </div>
-      ))}
+      )}
     </div>
   );
 }
